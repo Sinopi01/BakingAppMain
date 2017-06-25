@@ -13,10 +13,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.concoct.Recipie;
+import com.example.sinopi.bakingapp.pojo.Recipie;
 
 /**
- * Created by sinopi on 6/11/17.
+ * Created by SINOPI  on 6/15/2017.
  */
 
 public class RecipieAdapter extends RecyclerView.Adapter<RecipieAdapter.RecipieViewHolder>{
