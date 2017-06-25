@@ -32,7 +32,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import com.example.sinopi.bakingapp.R;
 
-import static com.example.sinopi.bakingapp.bakingactivities.MainActivity.isTablet;
+import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
 import static com.example.sinopi.bakingapp.fragments.StepsActivityFragment.steps;
 
 /**

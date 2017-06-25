@@ -12,18 +12,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import com.example.sinopi.bakingapp.concoct.Ingredient;
+import com.example.sinopi.bakingapp.pojo.Ingredient;
 import com.example.sinopi.bakingapp.R;
 
 /**
- * Created by sinopi on 6/11/17.
+ * Created by SINOPI  on 6/15/2017.
  */
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngridientViewHolder>{
 
     final private ArrayList<Ingredient> ingredients;
 
-    public IngredientsAdapter(ArrayList<Ingredient> ingredients) {
+    public IngredientsAdapter( ArrayList<Ingredient> ingredients) {
 
         this.ingredients = ingredients;
     }

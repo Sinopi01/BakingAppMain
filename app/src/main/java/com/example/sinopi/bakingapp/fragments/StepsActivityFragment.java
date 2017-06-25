@@ -13,12 +13,13 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.concoct.Steps;
+import com.example.sinopi.bakingapp.pojo.Steps;
+import com.example.sinopi.bakingapp.activities.StepsDetailsActivity;
 import com.example.sinopi.bakingapp.adapters.IngredientsAdapter;
 import com.example.sinopi.bakingapp.adapters.StepsAdapter;
-import com.example.sinopi.bakingapp.bakingactivities.BakingSteps;
+
+import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
 import static com.example.sinopi.bakingapp.fragments.MainActivityFragment.bakes;
-import static com.example.sinopi.bakingapp.bakingactivities.MainActivity.isTablet;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -58,12 +59,12 @@ public class StepsActivityFragment extends Fragment implements StepsAdapter.List
     @Override
     public void onListItemClick(int clickedItemIndex) {
         if (!isTablet) {
-            Intent intent = new Intent(getActivity(), BakingSteps.class);
+            Intent intent = new Intent(getActivity(), StepsDetailsActivity.class);
             intent.putExtra("item", clickedItemIndex);
             startActivity(intent);
         } else {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            StepsDetailsActivityFragment stepsDetailsFragment = new StepsDetailsActivityFragment();
+            com.example.sinopi.bakingapp.fragments.StepsDetailsActivityFragment stepsDetailsFragment = new com.example.sinopi.bakingapp.fragments.StepsDetailsActivityFragment();
             stepsDetailsFragment.index = clickedItemIndex;
             fragmentManager.beginTransaction()
                     .replace(R.id.stepsdetailsframe, stepsDetailsFragment)

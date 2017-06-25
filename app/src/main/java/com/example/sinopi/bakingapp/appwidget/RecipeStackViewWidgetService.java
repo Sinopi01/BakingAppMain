@@ -8,7 +8,6 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.example.sinopi.bakingapp.concoct.Ingredient;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -20,10 +19,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.concoct.Recipie;
-
+import com.example.sinopi.bakingapp.pojo.Ingredient;
+import com.example.sinopi.bakingapp.pojo.Recipie;
 /**
- * Created by sinopi on 6/11/17.
+ * Created by SINOPI  on 6/15/2017.
  */
 
 public class RecipeStackViewWidgetService extends RemoteViewsService {

@@ -13,11 +13,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.concoct.Steps;
-
+import com.example.sinopi.bakingapp.pojo.Steps;
 
 /**
- * Created by sinopi on 6/11/17.
+ * Created by SINOPI  on 6/15/2017.
  */
 
 public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHolder>{

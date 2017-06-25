@@ -30,12 +30,12 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.concoct.Recipie;
-import com.example.sinopi.bakingapp.bakingactivities.BakingSteps;
+import com.example.sinopi.bakingapp.pojo.Recipie;
+import com.example.sinopi.bakingapp.activities.StepsActivity;
 import com.example.sinopi.bakingapp.adapters.RecipieAdapter;
 
 
-import static com.example.sinopi.bakingapp.bakingactivities.MainActivity.isTablet;
+import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -98,7 +98,7 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
     @Override
     public void onListItemClick(int clickedItemIndex) {
 
-        Intent intent = new Intent(getActivity(), BakingSteps.class);
+        Intent intent = new Intent(getActivity(), StepsActivity.class);
         intent.putExtra("item", clickedItemIndex);
         startActivity(intent);
 

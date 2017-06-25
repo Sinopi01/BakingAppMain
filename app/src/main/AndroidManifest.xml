@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".bakingactivities.MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
-            android:configChanges="orientation|screenSize"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".bakingactivities.BakingSteps"
+            android:name=".activities.StepsActivity"
             android:label="@string/title_activity_steps"
-            android:parentActivityName=".bakingactivities.MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.sinopi.bakingapp.bakingactivities.MainActivity" />
+                android:value="com.example.sinopi.bakingapp.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".bakingactivities.BakingStepsDetails"
+            android:name=".activities.StepsDetailsActivity"
             android:label="@string/title_activity_steps_details"
 
             android:theme="@style/AppTheme"/>
@@ -55,5 +55,3 @@
     </application>
 
 </manifest>
-
-

@@ -8,10 +8,10 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.bakingactivities.MainActivity;
+import com.example.sinopi.bakingapp.activities.MainActivity;
 
 /**
- * Created by sinopi on 6/11/17.
+ * Created by SINOPI  on 6/15/2017.
  */
 
 public class BakingWidgetProvider extends AppWidgetProvider {
