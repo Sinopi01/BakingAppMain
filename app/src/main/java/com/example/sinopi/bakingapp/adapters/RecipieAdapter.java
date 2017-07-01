@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.pojo.Recipie;
+import com.example.sinopi.bakingapp.pojo.Recipe;
 
 /**
  * Created by SINOPI  on 6/15/2017.
@@ -22,11 +22,11 @@ import com.example.sinopi.bakingapp.pojo.Recipie;
 public class RecipieAdapter extends RecyclerView.Adapter<RecipieAdapter.RecipieViewHolder>{
 
     final private ListItemClickListener mOnClickListener;
-    final private ArrayList<Recipie> recipie;
+    final private ArrayList<Recipe> recipe;
 
-    public RecipieAdapter(ListItemClickListener listener, ArrayList<Recipie> recipie) {
+    public RecipieAdapter(ListItemClickListener listener, ArrayList<Recipe> recipe) {
         mOnClickListener = listener;
-        this.recipie = recipie;
+        this.recipe = recipe;
     }
 
 
@@ -53,7 +53,7 @@ public class RecipieAdapter extends RecyclerView.Adapter<RecipieAdapter.RecipieV
 
     @Override
     public int getItemCount() {
-        return recipie.size();
+        return recipe.size();
     }
 
     public interface ListItemClickListener {
@@ -79,16 +79,16 @@ public class RecipieAdapter extends RecyclerView.Adapter<RecipieAdapter.RecipieV
         }
 
         void onBind(int position) {
-            if (!recipie.isEmpty()) {
-                if(recipie.get(position).getImage().isEmpty()){
+            if (!recipe.isEmpty()) {
+                if(recipe.get(position).getImage().isEmpty()){
                     icon.setImageResource(R.drawable.img_no_thumb);
 
 
                 }else {
-                    Picasso.with(itemView.getContext()).load(recipie.get(position).getImage()).into(icon);
+                    Picasso.with(itemView.getContext()).load(recipe.get(position).getImage()).into(icon);
                 }
-                name.setText(recipie.get(position).getName());
-                servings.setText(itemView.getContext().getString(R.string.servings) + " " + recipie.get(position).getServings());
+                name.setText(recipe.get(position).getName());
+                servings.setText(itemView.getContext().getString(R.string.servings) + " " + recipe.get(position).getServings());
             }
         }
 

@@ -1,6 +1,8 @@
 package com.example.sinopi.bakingapp.activities;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +23,9 @@ public class StepsDetailsActivity extends AppCompatActivity {
             fragmentManager.beginTransaction()
                     .add(R.id.stepsdetailsframe, stepsDetailsFragment)
                     .commit();
+
         }
+
 
 
     }

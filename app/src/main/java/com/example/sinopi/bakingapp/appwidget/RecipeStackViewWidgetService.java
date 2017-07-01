@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 import com.example.sinopi.bakingapp.R;
 import com.example.sinopi.bakingapp.pojo.Ingredient;
-import com.example.sinopi.bakingapp.pojo.Recipie;
+import com.example.sinopi.bakingapp.pojo.Recipe;
 /**
  * Created by SINOPI  on 6/15/2017.
  */
@@ -34,7 +34,7 @@ public class RecipeStackViewWidgetService extends RemoteViewsService {
 }
 
 class StackViewsRemoteFactory implements RemoteViewsService.RemoteViewsFactory {
-    private ArrayList<Recipie> mRecipes;
+    private ArrayList<Recipe> mRecipes;
     private Context mContext;
 
     public StackViewsRemoteFactory(Context context, Intent intent) {
@@ -58,7 +58,7 @@ class StackViewsRemoteFactory implements RemoteViewsService.RemoteViewsFactory {
     public RemoteViews getViewAt(int position) {
         RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.widget_list_item);
 
-        Recipie recipe = mRecipes.get(position);
+        Recipe recipe = mRecipes.get(position);
 
         rv.setTextViewText(R.id.widget_item_recipe_name, recipe.getName());
 
@@ -111,7 +111,7 @@ class StackViewsRemoteFactory implements RemoteViewsService.RemoteViewsFactory {
                 // create an input stream reader
                 InputStreamReader reader = new InputStreamReader(urlConnection.getInputStream());
 
-                Recipie[] recipeArray = new Gson().fromJson(reader, Recipie[].class);
+                Recipe[] recipeArray = new Gson().fromJson(reader, Recipe[].class);
                 mRecipes = new ArrayList<>(Arrays.asList(recipeArray));
 
             } catch (MalformedURLException e) {

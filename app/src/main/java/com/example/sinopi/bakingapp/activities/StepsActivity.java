@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-
+import android.support.v7.widget.RecyclerView;
 
 import com.example.sinopi.bakingapp.R;
 import com.example.sinopi.bakingapp.fragments.StepsActivityFragment;
@@ -38,8 +38,8 @@ public class StepsActivity extends AppCompatActivity {
             }
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
-    }
+}
 
 

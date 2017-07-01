@@ -9,16 +9,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import com.example.sinopi.bakingapp.pojo.Ingredient;
-import com.example.sinopi.bakingapp.pojo.Steps;
-
-import static android.R.attr.id;
-
 /**
  * Created by ESIDEM jnr on 6/3/2017.
  */
 
-public class Recipie implements Parcelable{
+public class Recipe implements Parcelable{
     int id;
     private String name;
     private ArrayList<Ingredient> ingredients;
@@ -26,9 +21,9 @@ public class Recipie implements Parcelable{
     private String servings;
     private String image;
 
-    public Recipie(){}
+    public Recipe(){}
 
-    public Recipie(JSONObject bake_jason) {
+    public Recipe(JSONObject bake_jason) {
         try {
             this.name = bake_jason.getString("name");
             this.ingredients = new ArrayList<>();
@@ -73,19 +68,19 @@ public class Recipie implements Parcelable{
         return 0;
     }
 
-    public static final Creator<Recipie> CREATOR = new Creator<Recipie>() {
+    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
         @Override
-        public Recipie createFromParcel(Parcel in) {
-            return new Recipie(in);
+        public Recipe createFromParcel(Parcel in) {
+            return new Recipe(in);
         }
 
         @Override
-        public Recipie[] newArray(int size) {
-            return new Recipie[size];
+        public Recipe[] newArray(int size) {
+            return new Recipe[size];
         }
     };
 
-    protected Recipie(Parcel in) {
+    protected Recipe(Parcel in) {
         id = in.readInt();
         servings = in.readString();
         name = in.readString();

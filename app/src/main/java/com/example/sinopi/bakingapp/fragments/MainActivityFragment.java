@@ -30,7 +30,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.R;
-import com.example.sinopi.bakingapp.pojo.Recipie;
+import com.example.sinopi.bakingapp.pojo.Recipe;
 import com.example.sinopi.bakingapp.activities.StepsActivity;
 import com.example.sinopi.bakingapp.adapters.RecipieAdapter;
 
@@ -43,7 +43,7 @@ import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
 public class MainActivityFragment extends Fragment implements RecipieAdapter.ListItemClickListener,
         SwipeRefreshLayout.OnRefreshListener{
 
-    public static ArrayList<Recipie> bakes = new ArrayList<>();
+    public static ArrayList<Recipe> bakes = new ArrayList<>();
     private RecyclerView recyclerView;
     private RecipieAdapter adapter;
     private TextView no_network;
@@ -73,21 +73,21 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
     }
 
 
-    void loadViews(ArrayList<Recipie> bakes) {
+    void loadViews(ArrayList<Recipe> bakes) {
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.recipie_list);
         RecyclerView.LayoutManager layoutManager;
         if (isTablet) {
             layoutManager = new GridLayoutManager(getActivity(), 3);
         } else {
 
-            if(this.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT)
-            {
+            if(this.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT) {
             layoutManager = new LinearLayoutManager(getActivity());
-        }else {
+            }else {
 
                 layoutManager = new GridLayoutManager(getActivity(), 2);
+            }
         }
-        }
+
 
 
         recyclerView.setLayoutManager(layoutManager);
@@ -111,10 +111,10 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
 
     }
 
-    public class FetchRecipieTask extends AsyncTask<Void,Void,ArrayList<Recipie>>{
+    public class FetchRecipeTask extends AsyncTask<Void,Void,ArrayList<Recipe>>{
 
        @Override
-       protected ArrayList<Recipie> doInBackground(Void... params) {
+       protected ArrayList<Recipe> doInBackground(Void... params) {
 
 
            HttpURLConnection urlConnection = null;
@@ -136,7 +136,7 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
                urlConnection.connect();
 
                InputStream inputStream = urlConnection.getInputStream();
-               StringBuffer buffer = new StringBuffer();
+               StringBuilder builder= new StringBuilder();
                if (inputStream == null) {
                    return null;
                }
@@ -144,15 +144,15 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
 
                String line;
                while ((line = reader.readLine()) != null) {
-                   buffer.append(line + "\n");
+                   builder.append(line + "\n");
                }
-               if (buffer.length() == 0) {
+               if (builder.length() == 0) {
                    return null;
                }
-               JSONArray movieArray = new JSONArray(buffer.toString());
+               JSONArray movieArray = new JSONArray(builder.toString());
                bakes = new ArrayList<>();
                for (int i = 0; i < movieArray.length(); i++) {
-                   bakes.add(new Recipie(movieArray.getJSONObject(i)));
+                   bakes.add(new Recipe(movieArray.getJSONObject(i)));
                    Log.e("name: ", bakes.get(i).getName());
                }
                return bakes;
@@ -175,9 +175,9 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
        }
 
        @Override
-       protected void onPostExecute(ArrayList<Recipie> recipies) {
+       protected void onPostExecute(ArrayList<Recipe> recipes) {
 
-           loadViews(recipies);
+           loadViews(recipes);
            swipeRefreshLayout.setRefreshing(false);
 
            
@@ -198,7 +198,7 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
 
           swipeRefreshLayout.setRefreshing(true);
 
-          new FetchRecipieTask().execute();
+          new FetchRecipeTask().execute();
       }else {
           no_network.setVisibility(View.VISIBLE);
           swipeRefreshLayout.setRefreshing(false);
