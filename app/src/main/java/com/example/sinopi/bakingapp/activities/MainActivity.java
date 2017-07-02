@@ -12,10 +12,14 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.EventLogTags;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sinopi.bakingapp.R;
@@ -27,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
     public static int TYPE_NOT_CONNECTED = 0;
     private Snackbar snackbar;
     private CoordinatorLayout coordinatorLayout;
+    private FrameLayout frameLayout;
     private boolean internetConnected=true;
+
+
 
     public static boolean isTablet = false;
 

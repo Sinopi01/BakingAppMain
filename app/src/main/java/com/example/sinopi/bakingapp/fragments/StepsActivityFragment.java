@@ -64,7 +64,7 @@ public class StepsActivityFragment extends Fragment implements StepsAdapter.List
             startActivity(intent);
         } else {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            com.example.sinopi.bakingapp.fragments.StepsDetailsActivityFragment stepsDetailsFragment = new com.example.sinopi.bakingapp.fragments.StepsDetailsActivityFragment();
+            StepsDetailsActivityFragment stepsDetailsFragment = new StepsDetailsActivityFragment();
             stepsDetailsFragment.index = clickedItemIndex;
             fragmentManager.beginTransaction()
                     .replace(R.id.stepsdetailsframe, stepsDetailsFragment)

@@ -2,6 +2,7 @@ package com.example.sinopi.bakingapp.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +75,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
 
             icon = (ImageView) itemView.findViewById(R.id.step_image);
             short_description = (TextView) itemView.findViewById(R.id.short_desc);
-            full_description = (TextView) itemView.findViewById(R.id.full_descc);
+            full_description = (TextView) itemView.findViewById(R.id.full_desc);
             itemView.setOnClickListener(this);
         }
 
@@ -82,7 +83,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
             if (!steps.isEmpty()) {
                 if(steps.get(position).getThumbnailURL().isEmpty()){
                     icon.setImageResource(R.drawable.img_no_thumb);
-
 
                 }else {
                     Picasso.with(itemView.getContext()).load(steps.get(position).getThumbnailURL()).into(icon);

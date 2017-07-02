@@ -40,6 +40,7 @@ import static com.example.sinopi.bakingapp.fragments.StepsActivityFragment.steps
  */
 public class StepsDetailsActivityFragment extends Fragment implements ExoPlayer.EventListener{
 
+
     private static final String TAG = StepsDetailsActivityFragment.class.getSimpleName();
 
     private TextView longDescription;
@@ -51,6 +52,17 @@ public class StepsDetailsActivityFragment extends Fragment implements ExoPlayer.
     private static MediaSessionCompat mediaSession;
     private PlaybackStateCompat.Builder stateBuilder;
     private static long position = 0;
+
+    private int someStateValue;
+    private final String SOME_VALUE_KEY = "someValueToSave";
+
+    // Fires when a configuration change occurs and fragment needs to save state
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(SOME_VALUE_KEY, someStateValue);
+        super.onSaveInstanceState(outState);
+    }
+
 
     public StepsDetailsActivityFragment() {
     }
@@ -162,7 +174,6 @@ public class StepsDetailsActivityFragment extends Fragment implements ExoPlayer.
     private void releasePlayer() {
         exoPlayer.stop();
         exoPlayer.release();
-        exoPlayer = null;
     }
 
     @Override

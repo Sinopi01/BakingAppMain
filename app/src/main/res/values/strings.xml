@@ -13,5 +13,5 @@
     <string name="prev">Prev</string>
     <string name="no_network">No Network connection.</string>
     <string name="appwidget_text">Recipe Shopping List</string>
-    <string name="extra_recipe">recipe_extra</string>
+    <string name="extra_recipe" translatable="false">recipe_extra</string>
 </resources>

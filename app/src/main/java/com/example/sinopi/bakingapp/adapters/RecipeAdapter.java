@@ -19,12 +19,12 @@ import com.example.sinopi.bakingapp.pojo.Recipe;
  * Created by SINOPI  on 6/15/2017.
  */
 
-public class RecipieAdapter extends RecyclerView.Adapter<RecipieAdapter.RecipieViewHolder>{
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipieViewHolder>{
 
     final private ListItemClickListener mOnClickListener;
     final private ArrayList<Recipe> recipe;
 
-    public RecipieAdapter(ListItemClickListener listener, ArrayList<Recipe> recipe) {
+    public RecipeAdapter(ListItemClickListener listener, ArrayList<Recipe> recipe) {
         mOnClickListener = listener;
         this.recipe = recipe;
     }

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import com.example.sinopi.bakingapp.R;
 import com.example.sinopi.bakingapp.pojo.Recipe;
 import com.example.sinopi.bakingapp.activities.StepsActivity;
-import com.example.sinopi.bakingapp.adapters.RecipieAdapter;
+import com.example.sinopi.bakingapp.adapters.RecipeAdapter;
 
 
 import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
@@ -40,12 +40,12 @@ import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment implements RecipieAdapter.ListItemClickListener,
+public class MainActivityFragment extends Fragment implements RecipeAdapter.ListItemClickListener,
         SwipeRefreshLayout.OnRefreshListener{
 
     public static ArrayList<Recipe> bakes = new ArrayList<>();
     private RecyclerView recyclerView;
-    private RecipieAdapter adapter;
+    private RecipeAdapter adapter;
     private TextView no_network;
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -91,7 +91,7 @@ public class MainActivityFragment extends Fragment implements RecipieAdapter.Lis
 
 
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecipieAdapter(this, bakes);
+        adapter = new RecipeAdapter(this, bakes);
         recyclerView.setAdapter(adapter);
     }
 
