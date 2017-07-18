@@ -21,6 +21,7 @@ import java.util.Arrays;
 import com.example.sinopi.bakingapp.R;
 import com.example.sinopi.bakingapp.pojo.Ingredient;
 import com.example.sinopi.bakingapp.pojo.Recipe;
+
 /**
  * Created by SINOPI  on 6/15/2017.
  */
@@ -67,13 +68,13 @@ class StackViewsRemoteFactory implements RemoteViewsService.RemoteViewsFactory {
             ingredients += " - " + ingredient.getIngredient() + "\n";
         }
 
-        rv.setTextViewText(R.id.widget_item_ingredients,ingredients);
+        rv.setTextViewText(R.id.widget_item_ingredients, ingredients);
 
         Bundle extras = new Bundle();
-        extras.putParcelable(mContext.getString(R.string.extra_recipe),recipe);
+        extras.putParcelable(mContext.getString(R.string.extra_recipe), recipe);
         Intent fillIntent = new Intent();
         fillIntent.putExtras(extras);
-        rv.setOnClickFillInIntent(R.id.recipe_widget_item,fillIntent);
+        rv.setOnClickFillInIntent(R.id.recipe_widget_item, fillIntent);
 
         return rv;
     }
@@ -95,7 +96,7 @@ class StackViewsRemoteFactory implements RemoteViewsService.RemoteViewsFactory {
     }
 
     public void onDataSetChanged() {
-        if(mRecipes == null) {
+        if (mRecipes == null) {
 
             //Udacity Recipes
             final String UDACITY_BASE_URL_MOVIE = "https://go.udacity.com/android-baking-app-json";

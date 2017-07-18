@@ -10,6 +10,7 @@
     android:layout_marginStart="@dimen/card_view_margin"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="10dp">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/bacckground"
         android:layout_width="match_parent"

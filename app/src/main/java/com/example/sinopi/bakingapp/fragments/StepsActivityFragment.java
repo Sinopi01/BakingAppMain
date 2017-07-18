@@ -24,7 +24,7 @@ import static com.example.sinopi.bakingapp.fragments.MainActivityFragment.bakes;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class StepsActivityFragment extends Fragment implements StepsAdapter.ListItemClickListener{
+public class StepsActivityFragment extends Fragment implements StepsAdapter.ListItemClickListener {
 
     private RecyclerView stepsRecyclerView;
     private RecyclerView ingredientRecyclerView;
@@ -33,9 +33,6 @@ public class StepsActivityFragment extends Fragment implements StepsAdapter.List
     private int index = 0;
     public static ArrayList<Steps> steps = new ArrayList<>();
 
-
-    public StepsActivityFragment() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

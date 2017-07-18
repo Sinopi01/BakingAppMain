@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-
 import java.util.ArrayList;
 
 import com.example.sinopi.bakingapp.pojo.Ingredient;
@@ -19,11 +18,11 @@ import com.example.sinopi.bakingapp.R;
  * Created by SINOPI  on 6/15/2017.
  */
 
-public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngridientViewHolder>{
+public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngridientViewHolder> {
 
     final private ArrayList<Ingredient> ingredients;
 
-    public IngredientsAdapter( ArrayList<Ingredient> ingredients) {
+    public IngredientsAdapter(ArrayList<Ingredient> ingredients) {
 
         this.ingredients = ingredients;
     }
@@ -56,10 +55,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     }
 
 
-
-
-    class IngridientViewHolder extends RecyclerView.ViewHolder
-            {
+    class IngridientViewHolder extends RecyclerView.ViewHolder {
 
         TextView ingredient;
         TextView quantity;
@@ -78,8 +74,8 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
             if (!ingredients.isEmpty()) {
 
                 ingredient.setText(ingredients.get(position).getIngredient());
-                quantity.setText( String.valueOf(ingredients.get(position).getQuantity()));
-                measure.setText( ingredients.get(position).getMeasure());
+                quantity.setText(String.valueOf(ingredients.get(position).getQuantity()));
+                measure.setText(ingredients.get(position).getMeasure());
             }
         }
 

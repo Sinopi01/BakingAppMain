@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by ESIDEM jnr on 6/3/2017.
  */
 
-public class Steps implements Parcelable{
+public class Steps implements Parcelable {
 
     private int id;
     private String shortDescription;

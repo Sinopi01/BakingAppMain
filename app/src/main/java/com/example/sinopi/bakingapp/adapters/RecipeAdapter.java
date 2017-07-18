@@ -19,7 +19,7 @@ import com.example.sinopi.bakingapp.pojo.Recipe;
  * Created by SINOPI  on 6/15/2017.
  */
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipieViewHolder>{
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipieViewHolder> {
 
     final private ListItemClickListener mOnClickListener;
     final private ArrayList<Recipe> recipe;
@@ -80,11 +80,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipieVie
 
         void onBind(int position) {
             if (!recipe.isEmpty()) {
-                if(recipe.get(position).getImage().isEmpty()){
+                if (recipe.get(position).getImage().isEmpty()) {
                     icon.setImageResource(R.drawable.img_no_thumb);
 
 
-                }else {
+                } else {
                     Picasso.with(itemView.getContext()).load(recipe.get(position).getImage()).into(icon);
                 }
                 name.setText(recipe.get(position).getName());

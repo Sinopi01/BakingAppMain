@@ -13,15 +13,16 @@ import java.util.ArrayList;
  * Created by ESIDEM jnr on 6/3/2017.
  */
 
-public class Recipe implements Parcelable{
+public class Recipe implements Parcelable {
     int id;
     private String name;
     private ArrayList<Ingredient> ingredients;
-   private ArrayList<Steps> steps;
+    private ArrayList<Steps> steps;
     private String servings;
     private String image;
 
-    public Recipe(){}
+    public Recipe() {
+    }
 
     public Recipe(JSONObject bake_jason) {
         try {

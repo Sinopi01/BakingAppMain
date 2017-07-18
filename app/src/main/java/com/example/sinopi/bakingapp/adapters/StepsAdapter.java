@@ -20,7 +20,7 @@ import com.example.sinopi.bakingapp.pojo.Steps;
  * Created by SINOPI  on 6/15/2017.
  */
 
-public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHolder>{
+public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHolder> {
 
     final private ListItemClickListener mOnClickListener;
     final private ArrayList<Steps> steps;
@@ -81,14 +81,14 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
 
         void onBind(int position) {
             if (!steps.isEmpty()) {
-                if(steps.get(position).getThumbnailURL().isEmpty()){
+                if (steps.get(position).getThumbnailURL().isEmpty()) {
                     icon.setImageResource(R.drawable.img_no_thumb);
 
-                }else {
+                } else {
                     Picasso.with(itemView.getContext()).load(steps.get(position).getThumbnailURL()).into(icon);
                 }
                 short_description.setText(steps.get(position).getShortDescription());
-                full_description.setText( steps.get(position).getDescription());
+                full_description.setText(steps.get(position).getDescription());
             }
         }
 

@@ -38,7 +38,7 @@ import static com.example.sinopi.bakingapp.fragments.StepsActivityFragment.steps
 /**
  * A placeholder fragment containing a simple view.
  */
-public class StepsDetailsActivityFragment extends Fragment implements ExoPlayer.EventListener{
+public class StepsDetailsActivityFragment extends Fragment implements ExoPlayer.EventListener {
 
 
     private static final String TAG = StepsDetailsActivityFragment.class.getSimpleName();
@@ -197,7 +197,6 @@ public class StepsDetailsActivityFragment extends Fragment implements ExoPlayer.
         super.onResume();
         mediaSession.setActive(true);
     }
-
 
 
     @Override

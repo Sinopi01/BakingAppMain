@@ -41,7 +41,7 @@ import static com.example.sinopi.bakingapp.activities.MainActivity.isTablet;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment implements RecipeAdapter.ListItemClickListener,
-        SwipeRefreshLayout.OnRefreshListener{
+        SwipeRefreshLayout.OnRefreshListener {
 
     public static ArrayList<Recipe> bakes = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -56,7 +56,7 @@ public class MainActivityFragment extends Fragment implements RecipeAdapter.List
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      View view =  inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         no_network = (TextView) view.findViewById(R.id.no_network);
         no_network.setVisibility(View.GONE);
@@ -66,7 +66,6 @@ public class MainActivityFragment extends Fragment implements RecipeAdapter.List
         networkUp();
 
         downloadRecipes();
-
 
 
         return view;
@@ -80,14 +79,13 @@ public class MainActivityFragment extends Fragment implements RecipeAdapter.List
             layoutManager = new GridLayoutManager(getActivity(), 3);
         } else {
 
-            if(this.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT) {
-            layoutManager = new LinearLayoutManager(getActivity());
-            }else {
+            if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                layoutManager = new LinearLayoutManager(getActivity());
+            } else {
 
                 layoutManager = new GridLayoutManager(getActivity(), 2);
             }
         }
-
 
 
         recyclerView.setLayoutManager(layoutManager);
@@ -111,78 +109,78 @@ public class MainActivityFragment extends Fragment implements RecipeAdapter.List
 
     }
 
-    public class FetchRecipeTask extends AsyncTask<Void,Void,ArrayList<Recipe>>{
+    public class FetchRecipeTask extends AsyncTask<Void, Void, ArrayList<Recipe>> {
 
-       @Override
-       protected ArrayList<Recipe> doInBackground(Void... params) {
-
-
-           HttpURLConnection urlConnection = null;
-           BufferedReader reader = null;
-
-           //Udacity Recipes
-           final String UDACITY_BASE_URL_MOVIE = "https://go.udacity.com/android-baking-app-json";
+        @Override
+        protected ArrayList<Recipe> doInBackground(Void... params) {
 
 
-           try {
-               Uri builtUri = Uri.parse(UDACITY_BASE_URL_MOVIE)
-                       .buildUpon()
-                       .build();
+            HttpURLConnection urlConnection = null;
+            BufferedReader reader = null;
 
-               URL url = new URL(builtUri.toString());
+            //Udacity Recipes
+            final String UDACITY_BASE_URL_MOVIE = "https://go.udacity.com/android-baking-app-json";
 
-               urlConnection = (HttpURLConnection) url.openConnection();
-               urlConnection.setRequestMethod("GET");
-               urlConnection.connect();
 
-               InputStream inputStream = urlConnection.getInputStream();
-               StringBuilder builder= new StringBuilder();
-               if (inputStream == null) {
-                   return null;
-               }
-               reader = new BufferedReader(new InputStreamReader(inputStream));
+            try {
+                Uri builtUri = Uri.parse(UDACITY_BASE_URL_MOVIE)
+                        .buildUpon()
+                        .build();
 
-               String line;
-               while ((line = reader.readLine()) != null) {
-                   builder.append(line + "\n");
-               }
-               if (builder.length() == 0) {
-                   return null;
-               }
-               JSONArray movieArray = new JSONArray(builder.toString());
-               bakes = new ArrayList<>();
-               for (int i = 0; i < movieArray.length(); i++) {
-                   bakes.add(new Recipe(movieArray.getJSONObject(i)));
-                   Log.e("name: ", bakes.get(i).getName());
-               }
-               return bakes;
-           } catch (Exception e) {
-               e.printStackTrace();
-               return bakes;
-           } finally {
-               try {
-                   if (urlConnection != null) {
-                       urlConnection.disconnect();
-                   }
-                   if (reader != null) {
-                       reader.close();
-                   }
-               } catch (Exception e) {
+                URL url = new URL(builtUri.toString());
 
-                   Log.d("MainActivityFragment", e.getMessage());
-               }
-           }
-       }
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("GET");
+                urlConnection.connect();
 
-       @Override
-       protected void onPostExecute(ArrayList<Recipe> recipes) {
+                InputStream inputStream = urlConnection.getInputStream();
+                StringBuilder builder = new StringBuilder();
+                if (inputStream == null) {
+                    return null;
+                }
+                reader = new BufferedReader(new InputStreamReader(inputStream));
 
-           loadViews(recipes);
-           swipeRefreshLayout.setRefreshing(false);
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line + "\n");
+                }
+                if (builder.length() == 0) {
+                    return null;
+                }
+                JSONArray movieArray = new JSONArray(builder.toString());
+                bakes = new ArrayList<>();
+                for (int i = 0; i < movieArray.length(); i++) {
+                    bakes.add(new Recipe(movieArray.getJSONObject(i)));
+                    Log.e("name: ", bakes.get(i).getName());
+                }
+                return bakes;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return bakes;
+            } finally {
+                try {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                    if (reader != null) {
+                        reader.close();
+                    }
+                } catch (Exception e) {
 
-           
-       }
-   }
+                    Log.d("MainActivityFragment", e.getMessage());
+                }
+            }
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Recipe> recipes) {
+
+            loadViews(recipes);
+            swipeRefreshLayout.setRefreshing(false);
+
+
+        }
+    }
 
     private boolean networkUp() {
         ConnectivityManager cm =
@@ -192,17 +190,17 @@ public class MainActivityFragment extends Fragment implements RecipeAdapter.List
     }
 
 
-  private void downloadRecipes(){
+    private void downloadRecipes() {
 
-      if(networkUp()){
+        if (networkUp()) {
 
-          swipeRefreshLayout.setRefreshing(true);
+            swipeRefreshLayout.setRefreshing(true);
 
-          new FetchRecipeTask().execute();
-      }else {
-          no_network.setVisibility(View.VISIBLE);
-          swipeRefreshLayout.setRefreshing(false);
-      }
-  }
+            new FetchRecipeTask().execute();
+        } else {
+            no_network.setVisibility(View.VISIBLE);
+            swipeRefreshLayout.setRefreshing(false);
+        }
+    }
 
 }

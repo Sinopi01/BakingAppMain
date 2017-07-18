@@ -3,7 +3,7 @@
     package="com.example.sinopi.bakingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -37,7 +37,7 @@
             android:name=".activities.StepsDetailsActivity"
             android:label="@string/title_activity_steps_details"
 
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
 
         <receiver android:name=".appwidget.BakingWidgetProvider">
             <intent-filter>
@@ -49,9 +49,10 @@
                 android:resource="@xml/widget_provider_info" />
         </receiver>
 
-        <service android:name=".appwidget.RecipeStackViewWidgetService"
+        <service
+            android:name=".appwidget.RecipeStackViewWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS"
-            android:exported="false"/>
+            android:exported="false" />
 
     </application>
 
